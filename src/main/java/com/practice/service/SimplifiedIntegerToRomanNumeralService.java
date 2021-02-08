@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 @Service
 @Primary
 @Qualifier("optimized")
-public class OptimizedIntegerToRomanNumeralService implements IntegerToRoman {
+public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
 
     private static final String MESSAGE = "A valid integer in the range of [1-3999] is required";
 

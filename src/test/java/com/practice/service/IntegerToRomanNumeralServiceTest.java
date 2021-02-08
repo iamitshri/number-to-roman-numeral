@@ -8,9 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,28 +20,22 @@ public class IntegerToRomanNumeralServiceTest extends AbstractIntegerToRomanNume
 
     IntegerToRomanNumeralService service = new IntegerToRomanNumeralService();
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void testInvalidInput() {
         // act
-        exception.expect(InvalidInputException.class);
-        service.convert(0);
+        Assert.assertThrows(InvalidInputException.class, () -> service.convert(0));
     }
 
     @Test
     public void testNullInput() {
         // act
-        exception.expect(IllegalArgumentException.class);
-        service.convert(null);
+        Assert.assertThrows(IllegalArgumentException.class, () -> service.convert(null));
     }
 
     @Test
     public void testOutOfRange() {
         // act
-        exception.expect(InvalidInputException.class);
-        service.convert(4000);
+        Assert.assertThrows(InvalidInputException.class, () -> service.convert(4000));
     }
 
     @Test

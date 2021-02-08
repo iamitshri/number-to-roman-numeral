@@ -4,57 +4,39 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.practice.dto.RomanNumeralDto;
 import com.practice.exception.InvalidInputException;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 
 public class OptimizedIntegerToRomanNumeralServiceTest extends AbstractIntegerToRomanNumeralTest {
 
     Logger log = LoggerFactory.getLogger(this.getClass()
                                              .getName());
 
-    OptimizedIntegerToRomanNumeralService service = new OptimizedIntegerToRomanNumeralService();
+    SimplifiedIntegerToRomanNumeralService service = new SimplifiedIntegerToRomanNumeralService();
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testInvalidInput() {
         // act
-        exception.expect(InvalidInputException.class);
-        service.convert(0);
+        Assert.assertThrows(InvalidInputException.class, () -> service.convert(0));
     }
 
     @Test
     public void testNullInput() {
         // act
-        exception.expect(IllegalArgumentException.class);
-        service.convert(null);
+        Assert.assertThrows(IllegalArgumentException.class, () -> service.convert(null));
     }
 
     @Test
     public void testOutOfRange() {
         // act
-        exception.expect(InvalidInputException.class);
-        service.convert(4000);
+        Assert.assertThrows(InvalidInputException.class, () -> service.convert(4000));
     }
 
     @Test
@@ -71,7 +53,7 @@ public class OptimizedIntegerToRomanNumeralServiceTest extends AbstractIntegerTo
             String actual = res.getOutput();
             if (!actual.equals(expected)) {
                 String msg = "input:" + num + ", expected: " + expected + ", Actual:" + actual;
-                log.info("{}",msg);
+                log.info("{}", msg);
                 lst.add(msg);
             }
         }
