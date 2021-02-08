@@ -17,7 +17,7 @@ public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
     String[] thousands = {"", "M", "MM", "MMM"};
     String[] hundreds = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
     String[] tens = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
-    String[] digits = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    String[] units = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
     /**
      * <h1>  Time Complexity is O(log10(n)) We are looking at each digit of number  </h1>
@@ -40,13 +40,13 @@ public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
         int thousandthsPlace = num / 1000; // e.g. 1234/1000=1
         int hundredthsPlace = (num % 1000) / 100; // e.g. 234/100=2
         int tenthsPlace = (num % 100) / 10;//e.g. (1234%100)/10=34/10=3
-        int firstDigitPlace = num % 10; // e.g. 1234%10=4
+        int unitPlace = num % 10; // e.g. 1234%10=4
 
         StringBuilder sb = new StringBuilder();
         sb.append(thousands[thousandthsPlace]);
         sb.append(hundreds[hundredthsPlace]);
         sb.append(tens[tenthsPlace]);
-        sb.append(digits[firstDigitPlace]);
+        sb.append(units[unitPlace]);
         String romanNumeral = sb.toString();
         return new RomanNumeralDto(input, romanNumeral);
     }
