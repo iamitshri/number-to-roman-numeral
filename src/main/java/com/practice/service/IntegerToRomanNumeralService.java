@@ -96,6 +96,4 @@ public class IntegerToRomanNumeralService implements IntegerToRoman {
         int ceil = (int) Math.floor(Math.log10(num));
         return (int) Math.pow(10, ceil);
     }
-
-
 }

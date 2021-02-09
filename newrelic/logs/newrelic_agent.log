@@ -1,0 +1,24 @@
+2021-02-08T20:42:12,320-0700 [16520 1] com.newrelic INFO: Writing to New Relic log file: /Users/amit.shrigondekar/personal/resume/interview prep/adobe AEM interview/coding/number-to-roman-numeral/newrelic/logs/newrelic_agent.log
+2021-02-08T20:42:12,321-0700 [16520 1] com.newrelic INFO: JRE vendor Oracle Corporation version 11.0.8
+2021-02-08T20:42:12,321-0700 [16520 1] com.newrelic INFO: JVM vendor Oracle Corporation Java HotSpot(TM) 64-Bit Server VM version 11.0.8+10-LTS
+2021-02-08T20:42:12,321-0700 [16520 1] com.newrelic INFO: OS Mac OS X version 10.16 arch x86_64
+2021-02-08T20:42:12,381-0700 [16520 1] com.newrelic INFO: Agent Host: C02DF3J1MD6T IP: 192.168.86.245
+2021-02-08T20:42:12,381-0700 [16520 1] com.newrelic INFO: New Relic Agent v6.4.1 is initializing...
+2021-02-08T20:42:13,043-0700 [16520 21] com.newrelic INFO: Instrumentation com.newrelic.instrumentation.jdbc-resultset is disabled. Skipping.
+2021-02-08T20:42:13,742-0700 [16520 1] com.newrelic.agent.RPMServiceManagerImpl INFO: Configured to connect to New Relic at collector.newrelic.com:443
+2021-02-08T20:42:14,009-0700 [16520 1] com.newrelic INFO: Setting audit_mode to false
+2021-02-08T20:42:14,125-0700 [16520 1] com.newrelic.agent.config.ConfigServiceImpl INFO: Configuration file is /Users/amit.shrigondekar/personal/resume/interview prep/adobe AEM interview/coding/number-to-roman-numeral/newrelic/./newrelic.yml
+2021-02-08T20:42:14,132-0700 [16520 1] com.newrelic INFO: New Relic Agent v6.4.1 has started
+2021-02-08T20:42:14,132-0700 [16520 1] com.newrelic INFO: Agent class loader: com.newrelic.bootstrap.BootstrapAgent$JVMAgentClassLoader@4f063c0a
+2021-02-08T20:42:14,133-0700 [16520 1] com.newrelic INFO: Premain startup complete in 2,451ms
+2021-02-08T20:42:17,110-0700 [16520 1] com.newrelic INFO: Server Info: Apache Tomcat/9.0.41
+2021-02-08T20:42:19,133-0700 [16520 45] com.newrelic INFO: Host name is C02DF3J1MD6T, display host C02DF3J1MD6T for application integer-to-roman
+2021-02-08T20:42:20,256-0700 [16520 45] com.newrelic INFO: Collector redirection to collector-009.newrelic.com:443
+2021-02-08T20:42:20,657-0700 [16520 45] com.newrelic INFO: Max payload size is 1,000,000 bytes
+2021-02-08T20:42:20,657-0700 [16520 45] com.newrelic INFO: Agent run id: BebJT16JNBWUAC6L1kRt9CJgIgUAAAIBAAAnIQEAAECIAgREbfQgAwAFNi40LjEADEMwMkRGM0oxTUQ2VAAQaW50ZWdlci10by1yb21hbg
+2021-02-08T20:42:20,658-0700 [16520 45] com.newrelic INFO: Agent 16520@C02DF3J1MD6T/integer-to-roman connected to collector.newrelic.com:443
+2021-02-08T20:42:20,658-0700 [16520 45] com.newrelic INFO: Reporting to: https://rpm.newrelic.com/accounts/3050454/applications/1148056608
+2021-02-08T20:42:20,660-0700 [16520 45] com.newrelic INFO: Using default collector host: collector.newrelic.com
+2021-02-08T20:42:20,661-0700 [16520 45] com.newrelic INFO: Using default collector host: collector.newrelic.com
+2021-02-08T20:42:20,961-0700 [16520 45] com.newrelic INFO: Real user monitoring is enabled for application integer-to-roman. Auto instrumentation is enabled.
+2021-02-09T00:01:25,942-0700 [16520 20] com.newrelic.agent.core.CoreServiceImpl INFO: JVM is shutting down
