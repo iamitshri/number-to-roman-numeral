@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.practice</groupId>
   <artifactId>number-to-roman-numeral</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>number-to-roman-numeral</name>
   <description>Integer to Roman Numeral Conversion Project</description>
   <properties>
@@ -83,6 +83,7 @@
   </dependencies>
 
   <build>
+    <finalName>${project.artifactId}</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>

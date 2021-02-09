@@ -10,6 +10,8 @@
 ## How to build Docker Image
 - docker build -t numer-to-roman/number-to-roman-numeral .
 - docker run -p 8080:8080 numer-to-roman/number-to-roman-numeral
+  - docker container ls
+  - docker stop containerId
 - Using build packs
   - ./mvnw spring-boot:build-image
 
