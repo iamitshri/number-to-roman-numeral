@@ -1,11 +1,21 @@
+## Tests 
+- Unit Tests
+  - Service class is tested for all the  valid input range
+  - Controller is independently unit tested by mocking service class 
+- Integration Tests
+  - Controller based integ Test [TODO]
+  - Application Context initialization is checked
 
-## How to package
+## Documentation
+- Swagger 
+- [Swagger http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+## How to run
 - mvn clean install
-
-
-## How to test
 - http://localhost:8080/v1/romannumeral?query=1
-- [Swagger](http://localhost:8080/swagger-ui.html)
+
+## How to run with newrelic agent
+- java -javaagent:"/FULL_PATH/number-to-roman-numeral/newrelic/newrelic.jar"  -jar target/number-to-roman-numeral-0.0.1-SNAPSHOT.jar
 
 ## How to build Docker Image
 - docker build -t numer-to-roman/number-to-roman-numeral .
@@ -14,9 +24,6 @@
   - docker stop containerId
 - Using build packs
   - ./mvnw spring-boot:build-image
-
-## How to run with newrelic agent
-- java -javaagent:"/FULL_PATH/number-to-roman-numeral/newrelic/newrelic.jar"  -jar target/number-to-roman-numeral-0.0.1-SNAPSHOT.jar
 
 ## Checklist
 - Deployment diagram using lucid chart
