@@ -11,12 +11,16 @@
   </parent>
   <groupId>com.practice</groupId>
   <artifactId>number-to-roman-numeral</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <name>number-to-roman-numeral</name>
   <description>Integer to Roman Numeral Conversion Project</description>
   <properties>
     <java.version>11</java.version>
+    <sonar.projectKey>iamitshri_number-to-roman-numeral</sonar.projectKey>
+    <sonar.organization>iamitshri</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
+
   <dependencies>
 
     <dependency>
