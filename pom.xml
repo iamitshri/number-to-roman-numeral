@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.practice</groupId>
   <artifactId>number-to-roman-numeral</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <name>number-to-roman-numeral</name>
   <description>Integer to Roman Numeral Conversion Project</description>
   <properties>
@@ -19,10 +19,14 @@
     <sonar.projectKey>iamitshri_number-to-roman-numeral</sonar.projectKey>
     <sonar.organization>iamitshri</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.tests>src/test/java</sonar.tests>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
   </properties>
 
   <dependencies>
-
+    <!--  Swagger for api documentation dependencies-->
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
@@ -35,6 +39,7 @@
       <version>2.9.2</version>
     </dependency>
 
+    <!-- Spring boot -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -52,7 +57,7 @@
       <optional>true</optional>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+    <!-- Library for reading excel files with extension xlsx  -->
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
@@ -92,6 +97,30 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <!-- Plugin for Code Coverage -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <destFile>${sonar.jacoco.reportPath}</destFile>
+          <dataFile>${sonar.jacoco.reportPath}</dataFile>
+        </configuration>
       </plugin>
     </plugins>
   </build>
