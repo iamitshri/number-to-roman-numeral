@@ -2,15 +2,19 @@ package com.practice.service;
 
 import com.practice.dto.RomanNumeralDto;
 import com.practice.exception.InvalidInputException;
+import java.util.concurrent.CompletableFuture;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 @Service
 @Qualifier("regular")
+@Primary
 public class IntegerToRomanNumeralService implements IntegerToRoman {
 
-    private static final String MESSAGE = "A valid integer in the range of [1-3999] is required";
+    private static final String MESSAGE = "A valid integer in the range [1-3999] is required";
 
     /**
      * <h1>  Time Complexity is O(log10(n)) We are looking at each digit of number  </h1>
@@ -91,5 +95,12 @@ public class IntegerToRomanNumeralService implements IntegerToRoman {
     int getDivisor(int num) {
         int ceil = (int) Math.floor(Math.log10(num));
         return (int) Math.pow(10, ceil);
+    }
+
+    @Override
+    @Async
+    public CompletableFuture<RomanNumeralDto> convertAsync(Integer input) {
+        return CompletableFuture.completedFuture(
+            this.convert(input));
     }
 }

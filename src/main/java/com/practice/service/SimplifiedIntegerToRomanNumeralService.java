@@ -2,13 +2,14 @@ package com.practice.service;
 
 import com.practice.dto.RomanNumeralDto;
 import com.practice.exception.InvalidInputException;
+import java.util.concurrent.CompletableFuture;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 @Service
-@Primary
+
 @Qualifier("optimized")
 public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
 
@@ -49,5 +50,12 @@ public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
         sb.append(units[unitPlace]);
         String romanNumeral = sb.toString();
         return new RomanNumeralDto(input, romanNumeral);
+    }
+
+    @Override
+    @Async
+    public CompletableFuture<RomanNumeralDto> convertAsync(Integer input) {
+        return CompletableFuture.completedFuture(
+            this.convert(input));
     }
 }

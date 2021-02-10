@@ -1,8 +1,9 @@
 package com.practice.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
-public class RomanNumeralDto {
+public class RomanNumeralDto implements Comparable<RomanNumeralDto> {
 
     @ApiModelProperty(notes = "Input number in the range[1-3999]", name = "input", required = true, dataType = "Integer")
     private final int input;
@@ -29,5 +30,26 @@ public class RomanNumeralDto {
                    "input=" + input +
                    ", output='" + output + '\'' +
                    '}';
+    }
+
+    public int compareTo(RomanNumeralDto other) {
+        return Integer.compare(this.input, other.input);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RomanNumeralDto that = (RomanNumeralDto) o;
+        return input == that.input && Objects.equals(output, that.output);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(input, output);
     }
 }

@@ -10,20 +10,24 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * The type Swagger config.
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
     /**
      * Initialize Swagger
-     * @return
+     *
+     * @return docket
      */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                                                       .select()
                                                       .apis(RequestHandlerSelectors.any())
-                                                      .paths(PathSelectors.regex("/v1/romannumeral"))
+                                                      .paths(PathSelectors.ant("/**/romannumeral/**"))
                                                       .build();
     }
 

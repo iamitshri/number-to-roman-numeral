@@ -9,8 +9,14 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.practice.dto.RomanNumeralDto;
+import com.practice.dto.RomanNumeralsInRange;
 import com.practice.exception.InvalidInputException;
+import com.practice.exception.InvalidRangeException;
+import com.practice.service.IntegerToRoman;
 import com.practice.service.IntegerToRomanNumeralService;
+import com.practice.service.RomanNumeralsInRangeService;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +35,10 @@ public class IntToRomanControllerTest {
     Logger log = LoggerFactory.getLogger(this.getClass()
                                              .getName());
     @Mock
-    IntegerToRomanNumeralService service;
+    IntegerToRoman service;
+
+    @Mock
+    RomanNumeralsInRangeService romanNumeralsInRangeService;
 
     @InjectMocks
     IntegerToRomanNumeralController controller;
@@ -65,7 +74,7 @@ public class IntToRomanControllerTest {
     public void getRomanNumeralInvalidInput() throws Exception {
 
         // arrange
-        when(service.convert(4000)).thenThrow(new InvalidInputException(""));
+        when(service.convert(4000)).thenThrow(new InvalidInputException());
 
         // act
         MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/v1/romannumeral")
@@ -83,5 +92,59 @@ public class IntToRomanControllerTest {
             log.error("JsonProcessingException: ", e);
             return obj.toString();
         }
+    }
+
+    @Test
+    public void getRomanNumeralInRangeInvalidInput() throws Exception {
+
+        // arrange
+        when(romanNumeralsInRangeService.getRomanNumeralsInRange(2, 1)).thenThrow(new InvalidRangeException());
+
+        // act
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/v2/romannumeral")
+                                                                      .param("min", "2")
+                                                                      .param("max", "1"))
+                                       .andExpect(status().is5xxServerError())
+                                       .andDo(print())
+                                       .andReturn();
+    }
+
+    @Test
+    public void getRomanNumeralInRangeQueryParameterInvalidInput() throws Exception {
+
+        // arrange
+        when(service.convert(4000)).thenThrow(new InvalidInputException());
+
+        // act
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/v2/romannumeral")
+                                                                      .param("query", "4000"))
+                                       .andExpect(status().is5xxServerError())
+                                       .andDo(print())
+                                       .andReturn();
+    }
+
+    @Test
+    public void getRomanNumeralInRangeValidInput() throws Exception {
+
+        // arrange
+        List<RomanNumeralDto> lst = new ArrayList<>();
+        lst.add(new RomanNumeralDto(1, "I"));
+        lst.add(new RomanNumeralDto(2, "II"));
+
+        when(romanNumeralsInRangeService.getRomanNumeralsInRange(2, 1)).thenReturn(lst);
+
+        // act
+        MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.get("/v2/romannumeral")
+                                                                      .param("min", "2")
+                                                                      .param("max", "1"))
+                                       .andExpect(status().isOk())
+                                       .andDo(print())
+                                       .andReturn();
+
+        RomanNumeralsInRange range = new RomanNumeralsInRange(lst);
+        String expected = objectToJson(range);
+        String actual = result.getResponse()
+                              .getContentAsString();
+        assertThat(actual).isEqualTo(expected);
     }
 }

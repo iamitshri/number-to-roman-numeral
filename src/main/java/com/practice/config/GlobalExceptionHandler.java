@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = {Exception.class})
     protected ResponseEntity<String> handleException(Exception ex) {
-        log.error("Exception in conversion:", ex);
+        log.error("Exception :", ex);
         var httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(new MediaType("text", "plain", StandardCharsets.UTF_8));
         return new ResponseEntity<>(ex.getMessage(), httpHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
