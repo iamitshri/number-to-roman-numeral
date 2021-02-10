@@ -38,7 +38,7 @@ public class SimplifiedIntegerToRomanNumeralService implements IntegerToRoman {
 
         int num = input;
         int thousandthsPlace = num / 1000; // e.g. 1234/1000=1
-        int hundredthsPlace = (num % 1000) / 100; // e.g. 234/100=2
+        int hundredthsPlace = (num % 1000) / 100; // e.g. (1234%1000)/100=234/100=2
         int tenthsPlace = (num % 100) / 10;//e.g. (1234%100)/10=34/10=3
         int unitPlace = num % 10; // e.g. 1234%10=4
 

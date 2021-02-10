@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class OptimizedIntegerToRomanNumeralServiceTest extends AbstractIntegerToRomanNumeralTest {
+public class SimplifiedIntegerToRomanNumeralServiceTest extends AbstractIntegerToRomanNumeralTest {
 
     Logger log = LoggerFactory.getLogger(this.getClass()
                                              .getName());

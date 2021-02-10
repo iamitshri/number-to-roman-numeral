@@ -26,7 +26,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
-public class AbstractIntegerToRomanNumeralTest {
+public abstract class AbstractIntegerToRomanNumeralTest {
 
     /**
      * This method reads a RomanNumeralTestData.xlsx file from src/main/resources/RomanNumeralTestData.xlsx
@@ -37,11 +37,11 @@ public class AbstractIntegerToRomanNumeralTest {
     Map<Integer, String> getTestData() throws IOException {
 
         Map<Integer, String> map = new HashMap<>();
-        String fileLocation = "RomanNumeralTestData.xlsx";
+        String fileName = "RomanNumeralTestData.xlsx";
         ClassLoader cl = this.getClass()
                              .getClassLoader();
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
-        Resource[] resources = resolver.getResources("classpath*:/" + fileLocation);
+        Resource[] resources = resolver.getResources("classpath*:/" + fileName);
         File attachmentFileByName = resources[0].getFile();
         try (FileInputStream file = new FileInputStream(attachmentFileByName)) {
             XSSFWorkbook myWorkBook = new XSSFWorkbook(file);
