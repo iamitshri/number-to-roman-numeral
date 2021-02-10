@@ -1,6 +1,6 @@
 ## Deployment Diagram
 
-![Deployment Diagram](images/deployment-diagram.png)
+![Deployment Diagram](images/deployment-diagram.svg)
 
 ## Check the version deployed in AWS ECS
 
