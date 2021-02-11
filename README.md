@@ -18,6 +18,10 @@
 
 - Sonar Cloud Dashboard
   - https://sonarcloud.io/dashboard?id=iamitshri_number-to-roman-numeral&branch=main
+  
+ - NewRelic Integration for Monitoring, Alerting etc
+  - https://one.nr/0M8jqG72ewl ( Access details will be shared)
+ 
 
 
 ## Error Handling <a name="error"></a>
@@ -83,43 +87,42 @@
      - Source code metrics are published to the Sonar cloud
      - Application logs are in cloudwatch and are aggregated in newrelic
      - Monitoring, metrics for application is achieved by integrating with NewRelic
+      - Please refer to the video demonstration of CICD pipeline cretion 
+        - https://youtu.be/IVayX7sOZcM
+      - Sections in the video
+      - [Introduction](https://youtu.be/IVayX7sOZcM)
 
-- Please refer to the video demonstration of CICD pipeline cretion 
-  - https://youtu.be/IVayX7sOZcM
-- Sections in the video
-- 00:00 [Introduction](https://youtu.be/IVayX7sOZcM)
+      - [Build ECR Container registry](https://youtu.be/IVayX7sOZcM?t=90)
 
-- 01:30 [Build ECR Container registry](https://youtu.be/IVayX7sOZcM?t=90)
+      - [Code Build to run the build process](https://youtu.be/IVayX7sOZcM?t=117)
 
-- 01:57 [Code Build to run the build process](https://youtu.be/IVayX7sOZcM?t=117)
+      - [Create Target group](https://youtu.be/IVayX7sOZcM?t=329)
 
-- 05:29 [Create Target group](https://youtu.be/IVayX7sOZcM?t=329)
+      - [Create Load balancer](https://youtu.be/IVayX7sOZcM?t=388)
 
-- 06:28 [Create Load balancer](https://youtu.be/IVayX7sOZcM?t=388)
+      - [Create ECS Task Definition](https://youtu.be/IVayX7sOZcM?t=501)
 
-- 08:21 [Create ECS Task Definition](https://youtu.be/IVayX7sOZcM?t=501)
+      - [Create ECS Cluster](https://youtu.be/IVayX7sOZcM?t=652)
 
-- 10:52 [Create ECS Cluster](https://youtu.be/IVayX7sOZcM?t=652)
+      - [Create ECS Service](https://youtu.be/IVayX7sOZcM?t=684)
 
-- 11:24 [Create ECS Service](https://youtu.be/IVayX7sOZcM?t=684)
+      - [Test the deployment](https://youtu.be/IVayX7sOZcM?t=880)
 
-- 14:40 [Test the deployment](https://youtu.be/IVayX7sOZcM?t=880)
+      - [Create Code Pipeline to automate build and deploy](https://youtu.be/IVayX7sOZcM?t=1006)
 
-- 16:46 [Create Code Pipeline to automate build and deploy](https://youtu.be/IVayX7sOZcM?t=1006)
+      - [Trigger the pipeline by commit to GitHub main branch](https://youtu.be/IVayX7sOZcM?t=1160)
 
-- 19:20 [Trigger the pipeline by commit to GitHub main branch](https://youtu.be/IVayX7sOZcM?t=1160)
+      - [SonarCloud Integration](https://youtu.be/IVayX7sOZcM?t=1288)
 
-- 21:28 [SonarCloud Integration](https://youtu.be/IVayX7sOZcM?t=1288)
+      - [NewRelic How to integrate](https://youtu.be/IVayX7sOZcM?t=1350)
 
-- 22:30 [NewRelic How to integrate](https://youtu.be/IVayX7sOZcM?t=1350)
+      - [NewRelic APM Demo](https://youtu.be/IVayX7sOZcM?t=1409)
 
-- 23:29 [NewRelic APM Demo](https://youtu.be/IVayX7sOZcM?t=1409)
+      - [NewRelic Alerting demo](https://youtu.be/IVayX7sOZcM?t=1477)
 
-- 24:37 [NewRelic Alerting demo](https://youtu.be/IVayX7sOZcM?t=1477)
+      - [NewRelic Logs demo](https://youtu.be/IVayX7sOZcM?t=1617)
 
-- 26:57 [NewRelic Logs demo](https://youtu.be/IVayX7sOZcM?t=1617)
-
-- 28:07 [NewRelic General Features](https://youtu.be/IVayX7sOZcM?t=1687)
+      - [NewRelic General Features](https://youtu.be/IVayX7sOZcM?t=1687)
 
 
 ## Swagger Documentation <a name="swagger"></a>
