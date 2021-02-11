@@ -45,7 +45,7 @@ public class RomanNumeralsInRangeService {
             result.toArray(new CompletableFuture[0]));
         CompletableFuture<List<RomanNumeralDto>> listCompletableFuture = combinedCompletableFuture.thenApply(
             f -> result.stream()
-                       .map(CompletableFuture::join)
+                       .map(CompletableFuture::join) // future objects are already resolved, its basically a get
                        .collect(Collectors.toList()));
         List<RomanNumeralDto> list = listCompletableFuture.join();
         Collections.sort(list); // since we can not depend on the ordering of events in asynchronous processing

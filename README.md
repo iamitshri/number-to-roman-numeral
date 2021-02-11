@@ -1,10 +1,10 @@
-## [Reference a specification for Roman numerals online](#roman)
+## [Architecture Overview](#deployment-dia)
 ## [How to build and run your project.](#how-to-run)
 ## [Engineering and testing methodology](#methodology)
 ## [Extension 1 ](#extension-1)
+### [Reference a specification for Roman numerals online](#roman)
 ## [Extension 2 ](#extension-2)
 ## [Extension 3 ](#extension-3)
-## [Your packaging layout](#deployment-dia)
 ## [API Documentation](#swagger)
 ## [Tests](#tests-1)
 ## [Error Handling](#error)
@@ -16,14 +16,15 @@
 
 - Code Pipeline
   - https://us-west-2.console.aws.amazon.com/codesuite/codepipeline/pipelines/number-to-roman/view?region=us-west-2#
-
+    ![Code pipeline](images/code-pipeline.png)
 - Sonar Cloud Dashboard
   - https://sonarcloud.io/dashboard?id=iamitshri_number-to-roman-numeral&branch=main
+    ![Sonar](images/sonarcloud.png)
   
- - NewRelic Integration for Monitoring, Alerting etc
+- NewRelic Integration for Monitoring, Alerting etc
     - https://one.nr/0M8jqG72ewl ( Access details will be shared)
+    ![NewRelic](images/newrelic-integer-roman-conversion.png)
  
-
 
 ## Error Handling <a name="error"></a>
 - GlobalExceptionHandler.java is used to handle and log exceptions centrally
