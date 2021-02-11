@@ -8,6 +8,7 @@
 ## [API Documentation](#swagger)
 ## [Tests](#tests-1)
 ## [Error Handling](#error)
+## [Improvements](#improvements)
 
 ## Deployment Diagram <a name="deployment-dia"></a>
 
@@ -89,50 +90,52 @@
     - Monitoring, metrics for application is achieved by integrating with NewRelic
     - [Please refer to the video demonstration of CICD pipeline cretion](https://youtu.be/IVayX7sOZcM) 
     - Sections in the video
-    - [Introduction](https://youtu.be/IVayX7sOZcM)
+      - [Introduction](https://youtu.be/IVayX7sOZcM)
 
-    - [Build ECR Container registry](https://youtu.be/IVayX7sOZcM?t=90)
+      - [Build ECR Container registry](https://youtu.be/IVayX7sOZcM?t=90)
 
-    - [Code Build to run the build process](https://youtu.be/IVayX7sOZcM?t=117)
+      - [Code Build to run the build process](https://youtu.be/IVayX7sOZcM?t=117)
 
-    - [Create Target group](https://youtu.be/IVayX7sOZcM?t=329)
+      - [Create Target group](https://youtu.be/IVayX7sOZcM?t=329)
 
-    - [Create Load balancer](https://youtu.be/IVayX7sOZcM?t=388)
+      - [Create Load balancer](https://youtu.be/IVayX7sOZcM?t=388)
 
-    - [Create ECS Task Definition](https://youtu.be/IVayX7sOZcM?t=501)
+      - [Create ECS Task Definition](https://youtu.be/IVayX7sOZcM?t=501)
 
-    - [Create ECS Cluster](https://youtu.be/IVayX7sOZcM?t=652)
+      - [Create ECS Cluster](https://youtu.be/IVayX7sOZcM?t=652)
 
-    - [Create ECS Service](https://youtu.be/IVayX7sOZcM?t=684)
+      - [Create ECS Service](https://youtu.be/IVayX7sOZcM?t=684)
 
-    - [Test the deployment](https://youtu.be/IVayX7sOZcM?t=880)
+      - [Test the deployment](https://youtu.be/IVayX7sOZcM?t=880)
 
-    - [Create Code Pipeline to automate build and deploy](https://youtu.be/IVayX7sOZcM?t=1006)
+      - [Create Code Pipeline to automate build and deploy](https://youtu.be/IVayX7sOZcM?t=1006)
 
-    - [Trigger the pipeline by commit to GitHub main branch](https://youtu.be/IVayX7sOZcM?t=1160)
+      - [Trigger the pipeline by commit to GitHub main branch](https://youtu.be/IVayX7sOZcM?t=1160)
 
-    - [SonarCloud Integration](https://youtu.be/IVayX7sOZcM?t=1288)
+      - [SonarCloud Integration](https://youtu.be/IVayX7sOZcM?t=1288)
 
-    - [NewRelic How to integrate](https://youtu.be/IVayX7sOZcM?t=1350)
+      - [NewRelic How to integrate](https://youtu.be/IVayX7sOZcM?t=1350)
 
-    - [NewRelic APM Demo](https://youtu.be/IVayX7sOZcM?t=1409)
+      - [NewRelic APM Demo](https://youtu.be/IVayX7sOZcM?t=1409)
 
-    - [NewRelic Alerting demo](https://youtu.be/IVayX7sOZcM?t=1477)
+      - [NewRelic Alerting demo](https://youtu.be/IVayX7sOZcM?t=1477)
 
-    - [NewRelic Logs demo](https://youtu.be/IVayX7sOZcM?t=1617)
+      - [NewRelic Logs demo](https://youtu.be/IVayX7sOZcM?t=1617)
 
-    - [NewRelic General Features](https://youtu.be/IVayX7sOZcM?t=1687)
+      - [NewRelic General Features](https://youtu.be/IVayX7sOZcM?t=1687)
 
 
 ## Swagger Documentation <a name="swagger"></a>
 - [Swagger Link](http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/swagger-ui.html)
 
-## Prerequisites
-- Setup JDK 11,Maven and Docker
-- Intellij or Eclipse
-- AWS and NewRelic account is accessible
+
 
 ## [How to run](#how-to-run)
+
+### Prerequisites
+- Setup JDK 11,Maven and Docker
+- Intellij or Eclipse
+- AWS, SonarCloud and NewRelic account is accessible (not required for running locally)
 
 ## Local
   - ```git clone https://github.com/iamitshri/number-to-roman-numeral.git```
@@ -143,12 +146,6 @@
   ### Running with newrelic locally
       mvn clean install
       java -javaagent:"/absolute-path/number-to-roman-numeral/newrelic/newrelic.jar" -jar target/number-to-roman-numeral.jar
-  ## AWS
- 
-  #### Check the version deployed in AWS ECS
-    ````
-    curl 'http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v1/romannumeral?query=3434'
-    ````  
   ### How to build Docker Image
   - ```docker build -t numer-to-roman/number-to-roman-numeral .```
   - ``` docker run -p 8080:8080 numer-to-roman/number-to-roman-numeral ```
@@ -157,6 +154,14 @@
       - ```docker stop containerId```
   - Optional Using build packs
     - ./mvnw spring-boot:build-image
+  ### AWS
+ 
+  #### Check the version deployed in AWS ECS
+  - http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v1/romannumeral?query=3434
+    ````
+    curl 'http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v1/romannumeral?query=3434'
+    ````  
+
 
 
 ## References
@@ -170,3 +175,12 @@
 - https://docs.aws.amazon.com/codepipeline/latest/userguide/ecs-cd-pipeline.html
 ## New Relic Log ingestion
 - https://serverlessrepo.aws.amazon.com/applications/us-east-1/463657938898/NewRelic-log-ingestion
+
+
+## Improvements <a name="improvements"></a>
+- Infrastucture as code can be used to create cloud resources  e.g. Cloudformation for AWS
+  - This way we can have repeatable and testable process to sping up an environment
+- Integer to Roman conversion is a solid usecase for using AWS Lambdas
+  - We could add a redis caching layer to avoid calls to lamdas 
+  
+
