@@ -49,10 +49,9 @@
     - Valiadation for Integer to Roman 
       - Test Data: [Excel file is created with number in range [1-3999] to roman representation](src/main/resources/RomanNumeralTestData.xlsx)
       - Integer to Roman integer implementations is validated by reading this file and comparing actual vs expected
-  - Controller is independently unit tested by mocking service class 
+  - Controller is independently unit tested by mocking service class. (Mockito is used to mock service class) 
 - Integration Test
   - Application Context initialization is checked
-  - For controller testing, Mockito is used to mock service class, to test controller independently
 
 
 ### Extension 1 <a name="extension-1"></a>
@@ -166,7 +165,6 @@
     ````  
 
 
-
 ## References
 ### Roman specification <a name="roman"></a>
 - https://en.wikipedia.org/wiki/Roman_numerals
@@ -185,5 +183,7 @@
   - This way we can have repeatable and testable process to sping up an environment
 - Integer to Roman conversion is a solid usecase for using AWS Lambdas
   - We could add a redis caching layer to avoid calls to lamdas 
+- Postman command line tests could be added in the deployment phase
+    - https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/
   
 
