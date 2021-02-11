@@ -1,15 +1,15 @@
-[Reference a specification for Roman numerals online](#roman)
-[How to build and run your project.](#how-to-run)
-[Engineering and testing methodology](#methodology)
+## [Reference a specification for Roman numerals online](#roman)
+## [How to build and run your project.](#how-to-run)
+## [Engineering and testing methodology](#methodology)
 ## [Extension 1 Solution](#extension-1)
 ## [Extension 2 Solution](#extension-2)
 ## [Extension 2 Solution](#extension-2)
 ## [Your packaging layout](#deployment-dia)
 ## [API Documentation](#swagger)
-## [Tests](#tests)
+## [Tests](#tests-1)
 ## [Error Handling](#error)
 
-## Deployment Diagram<a name="deployment-dia"></a>
+## Deployment Diagram <a name="deployment-dia"></a>
 
 ![Deployment Diagram](images/deployment-diagram.svg)
 
@@ -19,16 +19,35 @@
 - Sonar Cloud Dashboard
   - https://sonarcloud.io/dashboard?id=iamitshri_number-to-roman-numeral&branch=main
 
-## Development principles <a name="methodology"></a>
-- Swagger is used as API documentation  
-- GlobalExceptionHandler is used to handle and log exceptions centrally
+
+## Error Handling <a name="error"></a>
+- GlobalExceptionHandler.java is used to handle and log exceptions centrally
+- Service method validates input parameters
+
+## Development Principles <a name="methodology"></a>
+- Dependencies are injected using constructor injection
+- Controller delegates calls to services
+- Strategy Pattern: interface is created for Integer to Roman conversion
+    - In the future, adhering to Open Closed Principle, we can swap out implementations
 - IntegerToRomanNumeralController has two endpoints with version v1 and v2
-  - Version is added to rest endpoint for safer future upgrades without braking downstream clients
-  - Version 1: /v1/romannumeral only supports query parameter
-  - Version 2: /v2/romannumeral supports (min and max) or query but not both
-- Interface is created for Integer to Roman conversion
-  - In the future, adhering to Open Closed Principle, we can swap out implementations
-- For controller testing, Mockito is used to mock service class, to test controller independently
+    - Version is added to rest endpoint for safer future upgrades without braking downstream clients
+    - Version 1: /v1/romannumeral only supports query parameter
+    - Version 2: /v2/romannumeral supports (min and max) or query but not both
+
+ 
+## Tests <a name="tests-1"></a>
+- Unit Tests
+  - Service class is tested for all the  valid input range
+    - AbstractIntegerToRomanNumeralTest.java
+      - This class has a method to read the excel file 
+    - Valiadation for Integer to Roman 
+      - Test Data: Excel file is created with number in range [1-3999] to roman representation
+      - Integer to Roman integer implementations is validated by reading this file and comparing actual vs expected
+  - Controller is independently unit tested by mocking service class 
+- Integration Test
+  - Application Context initialization is checked
+  - For controller testing, Mockito is used to mock service class, to test controller independently
+
 
 ### Extension 1 <a name="extension-1"></a>
 - Following services implement solution for extension 1
@@ -101,19 +120,6 @@
 - 26:57 [NewRelic Logs demo](https://youtu.be/IVayX7sOZcM?t=1617)
 
 - 28:07 [NewRelic General Features](https://youtu.be/IVayX7sOZcM?t=1687)
-
-
-## Tests 
-- Unit Tests
-  - Service class is tested for all the  valid input range
-    - AbstractIntegerToRomanNumeralTest.java
-      - This class has a method to read the excel file 
-    - Valiadation for Integer to Roman 
-      - Test Data: Excel file is created with number in range [1-3999] to roman representation
-      - Integer to Roman integer implementations is validated by reading this file and comparing actual vs expected
-  - Controller is independently unit tested by mocking service class 
-- Integration Test
-  - Application Context initialization is checked
 
 
 ## Swagger Documentation <a name="swagger"></a>
