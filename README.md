@@ -1,7 +1,8 @@
-## [Reference a specification for Roman numerals online](#roman)
-## [How to build and run your project.](#how-to-run)
-## [Engineering and testing methodology](#methodology)
+[Reference a specification for Roman numerals online](#roman)
+[How to build and run your project.](#how-to-run)
+[Engineering and testing methodology](#methodology)
 ## [Extension 1 Solution](#extension-1)
+## [Extension 2 Solution](#extension-2)
 ## [Extension 2 Solution](#extension-2)
 ## [Your packaging layout](#deployment-dia)
 ## [API Documentation](#swagger)
@@ -42,8 +43,8 @@
      - Hence our final solution is MMMCCXXXIV
    - SimplifiedIntegerToRomanNumeralService.java
    - Intuition behind this solution 
-    - In the previous solution, we were essentially looking for highest left integer and based on its decimal position, decide its roman representation
-    - For each position of the digit, we keep array of possible values and just do lookup  
+      - In the previous solution, we were essentially looking for leftmost integer and based on its decimal position, decide its roman representation
+      - For each position of the digit, we keep array of possible values and just do lookup  
 
 ### Extension 2 <a name="extension-2"></a>
 - RomanNumeralsInRangeService.java
@@ -57,12 +58,12 @@
 
 ### Extension 3 <a name="extension-3"></a>
 - We added the following DEVOps capabilities 
-   - Runnable Docker image created
-   - A CICD pipeline to build and deploy
-   - Service deployed on AWS Elastic Container Service
-   - Source code metrics are published to the Sonar cloud
-   - Application logs are in cloudwatch and are aggregated in newrelic
-   - Monitoring, metrics for application is achieved by integrating with NewRelic
+     - Runnable Docker image created
+     - A CICD pipeline to build and deploy
+     - Service deployed on AWS Elastic Container Service
+     - Source code metrics are published to the Sonar cloud
+     - Application logs are in cloudwatch and are aggregated in newrelic
+     - Monitoring, metrics for application is achieved by integrating with NewRelic
 
 - Please refer to the video demonstration of CICD pipeline cretion 
   - https://youtu.be/IVayX7sOZcM
