@@ -158,6 +158,8 @@
  
   #### Check the version deployed in AWS ECS
   - http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v1/romannumeral?query=3434
+  - http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v2/romannumeral?min=1&max=123
+  - http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v2/romannumeral?query=123
     ````
     curl 'http://number-to-numeral-load-balancer-1676602525.us-west-2.elb.amazonaws.com/v1/romannumeral?query=3434'
     ````  
