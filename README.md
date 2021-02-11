@@ -81,15 +81,14 @@
 
 ### Extension 3 <a name="extension-3"></a>
 - We added the following DEVOps capabilities 
-     - Runnable Docker image created
-     - A CICD pipeline to build and deploy
-     - Service deployed on AWS Elastic Container Service
-     - Source code metrics are published to the Sonar cloud
-     - Application logs are in cloudwatch and are aggregated in newrelic
-     - Monitoring, metrics for application is achieved by integrating with NewRelic
-      - Please refer to the video demonstration of CICD pipeline cretion 
-        - https://youtu.be/IVayX7sOZcM
-      - Sections in the video
+    - Runnable Docker image created
+    - A CICD pipeline to build and deploy
+    - Service deployed on AWS Elastic Container Service
+    - Source code metrics are published to the Sonar cloud
+    - Application logs are in cloudwatch and are aggregated in newrelic
+    - Monitoring, metrics for application is achieved by integrating with NewRelic
+    - [Please refer to the video demonstration of CICD pipeline cretion](https://youtu.be/IVayX7sOZcM) 
+    - Sections in the video
     - [Introduction](https://youtu.be/IVayX7sOZcM)
 
     - [Build ECR Container registry](https://youtu.be/IVayX7sOZcM?t=90)
